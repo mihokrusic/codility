@@ -1,6 +1,7 @@
 let lessons = {};
 
 lessons[1] = require('./lesson01');
+lessons[2] = require('./lesson02');
 
 let lesson = 1;
 if (process.argv.length >= 3 && !isNaN(process.argv[2]))
