@@ -1,8 +1,8 @@
-function binaryGap(n) {
-    if (isNaN(n))
+function binaryGap(N) {
+    if (isNaN(N))
         return 0;
 
-    let binary = parseInt(n, 10).toString(2);
+    let binary = parseInt(N, 10).toString(2);
 
     let gap = 0;
     let maxGap = 0;
