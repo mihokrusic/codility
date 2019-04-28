@@ -5,6 +5,9 @@ function frogJump(X, Y, D) {
 function permMissingElem(A) {
     A = [1, 2, 3, 5];
 
+    if (A.length === 0)
+        return 1;
+
     let expectedArrayLength = A.length + 1;
     let expectedSum = (expectedArrayLength * (expectedArrayLength + 1)) / 2;
     let currentSum = A.reduce((total, num) => total + num);
