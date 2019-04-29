@@ -3,6 +3,9 @@ let lessons = {};
 lessons[1] = require('./lesson01');
 lessons[2] = require('./lesson02');
 lessons[3] = require('./lesson03');
+lessons[4] = require('./lesson04');
+lessons[5] = require('./lesson05');
+lessons[6] = require('./lesson06');
 
 let lesson = 1;
 if (process.argv.length >= 3 && !isNaN(process.argv[2]))
