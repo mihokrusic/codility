@@ -1,7 +1,12 @@
 let lessons = {};
 
-for (var i = 1; i <= 8; i++)
-    lessons[i] = require('./lesson0' + i);
+for (var i = 1; i <= 10; i++) {
+    if (i < 10)
+        s = '0' + i;
+    else
+        s = i;
+    lessons[i] = require('./lesson' + s);
+}
 
 let lesson = 1;
 if (process.argv.length >= 3 && !isNaN(process.argv[2]))

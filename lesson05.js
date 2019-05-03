@@ -82,7 +82,29 @@ function genomicRangeQuery(S, P, Q) {
 }
 
 function minAvgTwoSlice() {
+    A = [4, 2, 2, 5, 1, 5, 8];
 
+    let minAvg = Number.MAX_SAFE_INTEGER;
+    let minIndex = 0;
+
+    let currentSum = 0;
+    let currentAvg = 0;
+
+    for (var i = 0; i < A.length - 1; i++) {
+        currentSum = A[i];
+        currentAvg = A[i];
+        for (var j = i + 1; j < A.length; j++) {
+            currentSum += A[j];
+            currentAvg = currentSum / ((j - i) + 1);
+
+            if (currentAvg < minAvg) {
+                minAvg = currentAvg;
+                minIndex = i;
+            }
+        }
+    }
+
+    return minIndex;
 }
 
 function countDiv(A, B, K) {
