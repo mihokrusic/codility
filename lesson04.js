@@ -83,8 +83,20 @@ function maxCounters(N, A) {
 function missingInteger(A) {
     A = [1, 3, 6, 4, 1, 2];
 
+    var B = [];
 
-    return 4;
+    for (let i = 0; i < A.length; i++) {
+        if (A[i] > 0) {
+            B[A[i]] = true;
+        }
+    }
+
+    for (let i = 1; i <= B.length; i++) {
+        if (!B[i])
+            return i;
+    }
+
+    return 1;
 }
 
 module.exports = {
