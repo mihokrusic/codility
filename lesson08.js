@@ -46,6 +46,57 @@ function denominator(A) {
     return (denominatorOccurances > Math.floor(A.length / 2) ? denominator.originalIndex : -1);
 }
 
+function equiLeader(A) {
+    A = [4, 4, 2, 5, 3, 4, 4, 4];
+
+    function getLeader(obj, itemCount) {
+        let max = 0;
+        let leader = 0;
+
+        let keys = Object.keys(obj);
+        keys.forEach((key) => {
+            if (obj[key] > max) {
+                max = obj[key];
+                leader = key;
+            }
+        });
+        if (max > Math.floor(itemCount / 2))
+            return +leader;
+        return -1;
+    }
+
+    let left = {};
+    let right = {};
+    for (let i = 0; i < A.length; i++)
+        right[A[i]] = (right[A[i]] || 0) + 1;
+
+    let leftCount = 0;
+    let rightCount = A.length;
+
+    let equiLeaders = 0;
+    for (let i = 0; i < A.length; i++) {
+        let item = A[i];
+        left[item] = (left[item] || 0) + 1;
+        right[item] = (right[item] || 0) - 1;
+
+        leftCount++;
+        rightCount--;
+
+        if (right[item] === 0)
+            delete right[item];
+
+        let leftLeader = getLeader(left, leftCount);
+        let rightLeader = getLeader(right, rightCount);
+
+        if (leftLeader === rightLeader && leftLeader !== -1) {
+            equiLeaders++;
+        }
+    }
+
+    return equiLeaders;
+}
+
 module.exports = {
     1: denominator,
+    2: equiLeader
 };
